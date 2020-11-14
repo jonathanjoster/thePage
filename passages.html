@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Page</title>
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi&family=Montserrat:wght@700&display=swap" rel="stylesheet"> 
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .card-wrapper {
+            margin-top: 100px;
+        }
+        .card-text {
+            width: 80%;
+        }
+        .card-title {
+            padding: 15px;
+        }
+        .card-caption {
+            text-align: right;
+            padding-top: 10px;
+            padding-right: 30px;
+        }
+    </style>
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+</head>
+<body>
+    <div id="side-bar">
+        <div class="side-bar-contents">
+            <ul>
+                <li><a href="index.html">music</a></li>
+                <li><a href="portforio.html">portforio</a></li>
+                <li><a href="#" class="here">passages</a></li>
+            </ul>
+        </div>
+    </div>
+    <header>
+        <h1 class="logo">h.d.<a href="https://www.youtube.com/watch?v=DxUHcXUJZgY">g</a></h1>
+        <div class="media">
+            <a href="https://twitter.com/_yabeeyo"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/zoo_portraits?igshid=1x2l83sjpd2fv"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.telyuka.com/"><i class="fab fa-facebook-f"></i></a>
+            <a id="navbar_toggle"><i class="fas fa-bars"></i></a>
+            <!-- import -->
+            <div id="menu">
+                <ul>
+                    <li><a href="index.html">MUSIC</a></li>
+                    <li><a href="portforio.html">PORIFORIO</a></li>
+                    <li><a href="#">PASSAGES</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div id="left">
+            <div class="white-line" style="left: 40%;"></div>
+            <div class="white-line" style="left: 80%;"></div>
+            <div class="home">
+                <div class="home-title">
+                    <h1>THE</h1>
+                    <h1>PAGE</h1>
+                </div>
+                <div class="home-text">
+                    <p>An introduction of my <a href="http://playstation-doc.net/j/detroit/SECRET.html">favorite</a> things.</p>
+                    <p>Of nobody, by nobody, for nobody.</p>
+                </div>
+            </div>
+            <div class="down">
+                <i class="fas fa-angle-double-down"></i>
+                scroll down!
+            </div>
+        </div>
+
+        <div id="right">
+            <div id="overlay"></div>
+            <div class="white-line"></div>
+        </div>
+    </div>
+
+    <script>
+        var info = [ // passage, quote from
+            [
+                "人間はみなに愛されているうちに消えるのが一番良いと思います。家の人たちの深い愛情に包まれ、たくさんの友人、同輩、後輩の友情に抱かれて、立ち去るべきだと思いました。",
+                "山の音 - 川端 康成"
+            ],
+            [
+                "と妹は運ばれてきたこれもまた見るからにまずそうな薄いコーヒーを飲みながら言った。",
+                "(短編) - 村上春樹"
+            ],
+            [
+                "なにかを新しく学ぶということは、かける時間よりも、集中力よりも、はっきりとした意図を描き続けることだということを、私は彼から学んだ。伸び悩んでいる時は基礎技術が助け、冴えている時は技術を追い越して気力と経験が伸びて行く。",
+                "西日 - 吉本ばなな"
+            ],
+            [
+                "リンドの小母さんは、「何事も期待せぬ者は幸いなり、失望することなき故に」って言いなさるけど。でも、あたし、何にも期待しないほうが、がっかりすることより、もっとつまらないと思うわ。",
+                "赤毛のアン - モンゴメリ"
+            ],
+            [
+                "We all know the underground has problems, but we smile anyway. Why? We can't anything, so why be morose about it?",
+                "A boy in snowdin - UNDERTALE"
+            ],
+            [
+                "何かの労をとるときは、必ず何かの目的を持ち、必ず何かの目標を定めるようにしなければならない。勤勉が彼らをせわしなくさせるのではなく、物事の虚像が彼らを駆り立てて狂わせるのである。",
+                "生の短さについて - セネカ"
+            ],
+            [
+                "君主は、前述の良い気質(慈悲深い、信義に厚い、人情味がある、裏表がない、敬虔)を何から何まで現実にそなえている必要はない。しかし、そなえているように見せることが大切である。",
+                "君主論 - マキャベリ"
+            ],
+            [
+                "自分がほんとうに得たいと思うものを欲すること、これは往々にして、人生の極意でもある。",
+                "幸福論 - アラン"
+            ]
+        ];
+        var colors = ["#c170aa", "#e7346e", "#aace38"];
+        var r = Math.round(Math.random()*2); // [0,2]
+        document.getElementById("overlay").style.backgroundColor = colors[r];
+        document.getElementById("side-bar").style.backgroundColor = colors[r];
+        document.getElementById("left").style.backgroundColor = colors[r];
+        TweenMax.to('#overlay', 1.5, {
+            delay: .7,
+            left: '100%',
+            ease: Expo.easeInOut
+        })
+        TweenMax.from('.home-title', 1, {
+            delay: .1,
+            opacity: 0,
+            y: 20,
+            ease: Expo.easeInOut
+        })
+        TweenMax.from('.home-text', 1, {
+            delay: .4,
+            opacity: 0,
+            y: 20,
+            ease: Expo.easeInOut
+        })
+        TweenMax.from('.logo', 1, {
+            delay: 1.,
+            opacity: 0,
+            x: -20,
+            ease: Expo.easeInOut
+        })
+        TweenMax.from('.fa-twitter', 1, {
+            delay: 1.5,
+            opacity: 0,
+            y: -30,
+            ease: Expo.easeOut
+        })
+        TweenMax.from('.fa-instagram', 1, {
+            delay: 1.6,
+            opacity: 0,
+            y: -30,
+            ease: Expo.easeOut
+        })
+        TweenMax.from('.fa-facebook-f', 1, {
+            delay: 1.7,
+            opacity: 0,
+            y: -30,
+            ease: Expo.easeOut
+        })
+        TweenMax.from('.fa-bars', 1, {
+            delay: 1.8,
+            opacity: 0,
+            y: -30,
+            ease: Expo.easeOut
+        })
+        TweenMax.from('.side-bar-contents', 1, {
+            delay: 1.,
+            opacity: 0,
+            x: -20,
+            ease: Expo.easeInOut
+        })
+        TweenMax.from('.down', 1, {
+            delay: 1.,
+            opacity: 0,
+            y: 20,
+            ease: Expo.easeInOut
+        })
+
+        for (var i=0; i<info.length; i++) { 
+            var cardTitle = document.createElement("div");
+            cardTitle.className = "card-title";
+            cardTitle.innerHTML = info[i][0];
+            var cardCaption = document.createElement("div");
+            cardCaption.className = "card-caption";
+            cardCaption.innerHTML = info[i][1];  
+            var cardText = document.createElement("div");
+            cardText.className = "card-text";
+            cardText.appendChild(cardTitle);
+            cardText.appendChild(cardCaption);
+
+            var card = document.createElement("div");
+            card.className = "card-WO-image";
+            // card.appendChild(imgWrapper);
+            card.appendChild(cardText);
+            var cardWrapper = document.createElement("div");
+            cardWrapper.className = "card-wrapper";
+            cardWrapper.appendChild(card);
+            document.getElementById("right").appendChild(cardWrapper);
+        }
+
+        var tgl = document.getElementById('navbar_toggle');
+        tgl.addEventListener('click', function () {
+            tgl.classList.toggle('open');
+            document.getElementById('menu').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
