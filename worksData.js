@@ -20,7 +20,7 @@ var info = [ // id, imgsrc, title, artist
     [
         "jinglebells",
         "url(src/jingle.jpg)",
-        "Jingle Bells 逆再生",
+        "<a href='https://jonathanjoster.github.io/jingleBells/'>Jingle Bells 逆再生</a>",
         "騒がしくて個人的に好き"
     ],
     [

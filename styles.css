@@ -194,6 +194,9 @@ header h1 {
     bottom: 0;
     right: 0;
 }
+.card a {
+    color: rgba(255,255,255,.8);
+}
 .img-wrapper {
     border: 1px solid gold;
     max-width: 40%;
