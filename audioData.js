@@ -37,7 +37,7 @@ var info = [ // id, imgsrc, title, artist
     ],
     [
         "yuugi",
-        "url(https://pixabay.com/get/53e5dd424d5bae14f1dc8460962933761437d6e14e50774977287fd49148c0_640.jpg)",
+        "url(https://lh3.googleusercontent.com/proxy/o-9c2zgKVnuJnZ2e0uoqohIIOVJ034rDxP8Cte4udr_1VXPvPoeuXGrwSV_l3n2xBADw2aZGy7we1mc6sBAFZ1Y-tUBFs6p05qT11EvTWpAsGoOBA_UUJ5BAE_z5ZesYI3inhw)",
         "遊戯",
         "本多俊之"
     ],
